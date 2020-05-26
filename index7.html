@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classの復習</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    {
+      
+      class Club{
+        constructor(name,color){
+          this.name = name;
+          this.color = color;
+        }
+        show(){
+          return `${this.name}のイメージカラーは${this.color}です`
+        }
+      }
+      class Liverpool extends Club{
+        place(){
+          return 'リヴァプールが本拠地です'
+        }
+        cl(){
+          return `${this.name}は2019年にCLを制覇しました`;
+        }
+      }
+      class Intel extends Club{
+        place(){
+          return 'ミラノが本拠地です'
+        }
+        cl(){
+          return `${this.name}は2010年にCLを制覇しました`;
+        }
+      }
+
+      const liverpool = new Liverpool('リヴァプール','赤')
+      console.log(liverpool);                       //41行目が表示
+      console.log(liverpool.place());               //26
+      console.log(liverpool.cl());                  //29
+      console.log(liverpool.show());                //21
+
+
+      const intel = new Intel('インテル','青')
+      console.log(intel);                           //48
+      console.log(intel.place());                   //34
+      console.log(intel.cl());                      //37
+      console.log(intel.show());                    //21
+
+
+      class Team{
+        constructor(info){
+          this.name = info.name;
+        }
+        teachMeStrongth(){
+          return `${this.name}はCLを3連覇したことがあります`
+        }
+      }
+      class Realmadrid extends Team{
+        constructor(info){
+          super(info); 
+          this.color = info.color;
+        }
+        teachColor(){
+          return `${this.color}い巨人`
+        }
+        static history(name){
+          return `${name}で選手をしていたジダンは現在では${name}の監督です`
+        }
+      }
+
+      const team = new Team({name: 'レアルマドリード'})
+      console.log(team);                          //75行目が表示
+      console.log(team.teachMeStrongth())         //60行目が表示
+
+      const realmadrid = new Realmadrid({ color: '白',name: 'レアルマドリード'});
+      console.log(realmadrid);                    //80行目が表示
+      console.log(realmadrid.teachMeStrongth());  //60行目が表示
+      console.log(realmadrid.teachColor());       //69行目が表示
+      console.log(Realmadrid.history('レアル'));  //72行目が表示
+    }
+  </script>
+</body>
+
+</html>
